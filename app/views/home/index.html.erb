@@ -1,0 +1,95 @@
+<html>
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-style"></style>
+<head class="has-navbar-fixed-top">
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <!-- Some SEO -->
+  <!-- Title -->
+  <title>Demo App</title>
+
+  <!-- Bulma.IO -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Custom Styles (inline) -->
+
+  <!-- SCRIPTS -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<body data-new-gr-c-s-check-loaded="14.1034.0" data-gr-ext-installed="">
+<nav class="navbar has-shadow is-dark is-fixed-top">
+  <div class="navbar-nav">
+    <div class="navbar-item first">
+    <div class="navbar-item center">
+      <p class="content" style="font-size: 1.5rem;">Demo APP
+      </p></div>
+    <div class="navbar-item last">
+      <div class="field">
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="flex-container">
+
+
+
+  <section class="section hero is-bold has-text-centered">
+    <div class="columns is-centered">
+      <div class="card">
+        <div class="card-content">
+          <div id="pinger_wrapper" class="dataTables_wrapper dt-jqueryui no-footer">
+            <div class="fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-tl ui-corner-tr">
+              <div class="dataTables_length" id="pinger_length"></div>
+            </div>
+            <footer>
+              <!-- Clipboard.js -->
+              <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+              <!-- jQuery -->
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+              <script>
+
+                  function fetch_data() {
+
+                      $.ajax({
+                          url: '/fetch_logs',
+                          type: 'get',
+                          async: true,
+                          data: {},
+
+                          success: function (request_data) {
+                              $("#logs").html(JSON.stringify(request_data))
+                          },
+                          error: function (xhr) {
+                              alert("Failed");
+                          }
+                      });
+
+                  }
+              </script>
+            </footer>
+
+
+            <br><br>
+
+            <table  class="table" role="grid" aria-describedby="pinger_info">
+              <colgroup>
+
+              </colgroup>
+              <thead>
+
+              </thead>
+              <button onclick="fetch_data()"> Fetch Logs</button>
+
+              <tbody>
+              <p id='logs'></p>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
