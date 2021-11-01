@@ -1,0 +1,17 @@
+[Unit]
+Description=ExampleApp
+Requires=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/ubuntu/Demoapp
+ExecStart=/bin/bash -lc 'rails s'
+TimeoutSec=30s
+RestartSec=30s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
